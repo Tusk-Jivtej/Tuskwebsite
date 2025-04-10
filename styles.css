@@ -892,3 +892,66 @@ html {
       text-align: center;
     }
   }
+
+
+.client-container {
+    padding: 0px 0px 80px 0px;
+    overflow: hidden;
+    background-color: #001328;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    
+  }
+  
+  .client-header {
+    padding: 0px 0px 80px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #EFE8DC;
+    margin: 0px;
+    text-align: left;
+  }
+  
+  .client-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .client-track {
+    display: flex;
+    gap: 80px;
+    animation: scrollClients 15s linear infinite;
+    width: fit-content;
+  }
+  
+
+  .client-track img {
+    height: 60px;
+    margin: 0 40px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Optional: makes logos white */
+  }
+  
+  @keyframes scrollClients {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .client-track {
+      gap: 40px;
+    }
+  
+    .client-track img {
+      max-height: 40px;
+    }
+  
+    .client-header {
+      font-size: 28px;
+      padding: 0px 0px 80px 20px;
+    }
+  }
