@@ -955,3 +955,65 @@ html {
       padding: 0px 0px 80px 20px;
     }
   }
+
+
+
+  .contact-form-section {
+    background-color: #001328;
+    padding: 80px 20px;
+    color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+  }
+  
+  .form-header {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color:#EFE8DC;
+    margin-bottom: 40px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid #FFD700;
+  }
+  
+  .submit-btn {
+    background-color: #1428A0;
+    color: #EFE8DC;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #FFC107;
+    color: #001328;
+  }
