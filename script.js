@@ -23,15 +23,5 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(changeWord, 2000); // Increased interval for smoother pacing
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value
-  };
-
  
 
