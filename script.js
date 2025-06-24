@@ -23,25 +23,30 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(changeWord, 2000); // Increased interval for smoother pacing
 });
 
-document.getElementById("tusk-form").addEventListener("submit", function (e) {
+const form = document.querySelector('.contact-form');
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value,
+  };
 
-  const form = e.target;
-  const data = new FormData(form);
-  const status = document.getElementById("form-status");
-
-  fetch("https://script.google.com/a/macros/tusksigns.ae/s/AKfycbwkj9AbEaK95uxD7iA6K3qZN8Ay4IZOiZajpFBLSj4tcygXoaAcKBsp0CleE4dkJEWGtw/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: new URLSearchParams(data),
-  })
-    .then(() => {
-      form.reset();
-      status.innerText = "Message sent successfully!";
-    })
-    .catch(() => {
-      status.innerText = "Oops! Something went wrong.";
+  try {
+    const response = await fetch('https://script.google.com/a/macros/uspl.co.in/s/AKfycbzGaVpYPDPh78olCKMQQAo84DAsTdequZK0I9upY7H_3aoWexDF6EFKQAeI864zdnk4Mw/exec', {
+      method: 'POST',
+      mode: 'no-cors',  // Important if you get CORS errors (but this disables response)
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     });
+    alert('Message sent successfully!');
+    form.reset();
+  } catch (error) {
+    alert('Failed to send message.');
+    console.error(error);
+  }
 });
 
  
