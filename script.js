@@ -29,12 +29,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const status = document.getElementById('form-status');
   status.textContent = "Sending...";
 
-  const formData = {
-    name: this.name.value,
-    email: this.email.value,
-    message: this.message.value
-  };
-
+  const formData = new FormData(this);
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message");
+    
   try {
     const response = await fetch('https://script.google.com/a/macros/uspl.co.in/s/AKfycbyJ_38enmhcmQBDJlf882DG4E0BHg0LRxD6Asj7KSUQe1bK-JJzDeo-ucEWvRzMNqWEtA/exec', {
       method: 'POST',
