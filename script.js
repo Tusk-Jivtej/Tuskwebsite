@@ -33,7 +33,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     message: form.message.value
   };
 
-  fetch('https://script.google.com/macros/s/AKfycbyDbov1V5f_1oXyhBHEiktGpCY1FNOGo67E8kOLZsP1VhEZJyxaycCj_wtvHoAv5o71Iw/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbw6bd_Pr9g-3gtM7QofUKitdgXStXAVRaly0cJIo0olP6sFz5bQs_6AoNZp-JR7Pf7V/exec', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
