@@ -29,23 +29,29 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const status = document.getElementById('form-status');
   status.textContent = "Sending...";
 
-  const formData = new FormData(this);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
-    
+  // Extract form data
+  const name = document.querySelector('input[name="name"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+  const message = document.querySelector('textarea[name="message"]').value;
+
+  const data = {
+    name,
+    email,
+    message
+  };
+
   try {
-    const response = await fetch('https://script.google.com/a/macros/uspl.co.in/s/AKfycbyJ_38enmhcmQBDJlf882DG4E0BHg0LRxD6Asj7KSUQe1bK-JJzDeo-ucEWvRzMNqWEtA/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbykQ8VHpEbq-VcJN2yZXSPmaW--tZf2m7TDjwDk617-W_x2LtjJif5Cz_EFJbXnpGqISg/exec', {
       method: 'POST',
-      body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
+      body: JSON.stringify(data)
     });
 
     const result = await response.json();
 
-    if(result.result === "success"){
+    if (result.result === "success") {
       status.textContent = "Message sent successfully!";
       this.reset();
     } else {
