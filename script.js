@@ -33,13 +33,19 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     message: form.message.value
   };
 
-  fetch('https://script.google.com/macros/s/AKfycbyZbF_05V39UMXwIx7F7566zQv93xixVNhtjYTKKzUud3RoZccIt8p2ilzHfYHyxeHTJA/exec', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+  fetch("https://script.google.com/macros/s/AKfycbykQ8VHpEbq-VcJN2yZXSPmaW--tZf2m7TDjwDk617-W_x2LtjJif5Cz_EFJbXnpGqISg/exec", {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+  body: new URLSearchParams({
+    name: formData.get("name"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+  }),
+})
+
   .then(response => response.json())
   .then(res => {
     if (res.result === 'success') {
