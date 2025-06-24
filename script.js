@@ -41,7 +41,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
   };
 
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbykQ8VHpEbq-VcJN2yZXSPmaW--tZf2m7TDjwDk617-W_x2LtjJif5Cz_EFJbXnpGqISg/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyJ_38enmhcmQBDJlf882DG4E0BHg0LRxD6Asj7KSUQe1bK-JJzDeo-ucEWvRzMNqWEtA/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
