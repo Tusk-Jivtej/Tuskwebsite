@@ -23,28 +23,38 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(changeWord, 2000); // Increased interval for smoother pacing
 });
 
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', async (e) => {
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value,
+
+  const status = document.getElementById('form-status');
+  status.textContent = "Sending...";
+
+  const formData = {
+    name: this.name.value,
+    email: this.email.value,
+    message: this.message.value
   };
 
   try {
-    const response = await fetch('https://script.google.com/a/macros/uspl.co.in/s/AKfycbzGaVpYPDPh78olCKMQQAo84DAsTdequZK0I9upY7H_3aoWexDF6EFKQAeI864zdnk4Mw/exec', {
+    const response = await fetch('https://script.google.com/a/macros/uspl.co.in/s/AKfycbyJ_38enmhcmQBDJlf882DG4E0BHg0LRxD6Asj7KSUQe1bK-JJzDeo-ucEWvRzMNqWEtA/exec', {
       method: 'POST',
-      mode: 'no-cors',  // Important if you get CORS errors (but this disables response)
+      body: JSON.stringify(formData),
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
     });
-    alert('Message sent successfully!');
-    form.reset();
+
+    const result = await response.json();
+
+    if(result.result === "success"){
+      status.textContent = "Message sent successfully!";
+      this.reset();
+    } else {
+      status.textContent = "Error sending message. Try again.";
+      console.error(result.message);
+    }
   } catch (error) {
-    alert('Failed to send message.');
+    status.textContent = "Network error. Try again later.";
     console.error(error);
   }
 });
