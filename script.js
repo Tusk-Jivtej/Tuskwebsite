@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(changeWord, 2000); // Increased interval for smoother pacing
 });
 
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
 
   const status = document.getElementById('form-status');
