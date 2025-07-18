@@ -64,5 +64,12 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 });
 
- 
+ document.getElementById('whatsapp-button').addEventListener('click', function() {
+    if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'engagement',
+            'event_label': 'WhatsApp Chat Button'
+        });
+    }
+});
 
