@@ -1018,7 +1018,8 @@ html {
     color: #001328;
   }
 
-  position: fixed;
+#whatsapp-button {
+    position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #25D366; /* WhatsApp Green */
