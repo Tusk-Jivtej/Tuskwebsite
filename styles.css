@@ -34,7 +34,7 @@ html {
     
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 100px;
     flex: 1;
     margin: 0;
     font-weight: 200;
@@ -1046,4 +1046,5 @@ html {
     width: 36px;
     height: 36px;
 }
+
 
